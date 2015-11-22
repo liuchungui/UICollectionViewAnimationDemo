@@ -47,7 +47,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.colorArr.count-9
+        return self.colorArr.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -99,6 +99,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if self.colorArr.count - 2  > selectIndexPath.row {
                 let targetIndexPath = NSIndexPath(forRow: selectIndexPath.row+2, inSection: selectIndexPath.section)
                 self.collectionView?.moveItemAtIndexPath(selectIndexPath, toIndexPath: targetIndexPath)
+                //改变数据源
+                let lastColor = self.colorArr[selectIndexPath.row]
+                self.colorArr.removeAtIndex(selectIndexPath.row)
+                self.colorArr.insert(lastColor, atIndex: selectIndexPath.row+2)
+                
             }
         }
     }

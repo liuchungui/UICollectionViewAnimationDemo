@@ -164,13 +164,6 @@ class BGSelectImageLayout: UICollectionViewLayout {
     
     override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = super.initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath)
-//        NSLog("%p", self.layoutInfoDic)
-//        print("方法：initialLayoutAttributesForAppearingItemAtIndexPath")
-//        print("初始状态：")
-//        self.printAttributes(attributes!)
-//        print("更新之后状态：")
-//        self.printAttributes(self.layoutInfoDic[itemIndexPath]!)
-//        print("\n")
         switch self.animationType {
         case .Insert:
             if self.insertIndexPathArr.contains(itemIndexPath) {
@@ -259,13 +252,6 @@ class BGSelectImageLayout: UICollectionViewLayout {
         default:
             break
         }
-//        NSLog("%p", self.layoutInfoDic)
-//        print("方法：finalLayoutAttributesForDisappearingItemAtIndexPath")
-//        print("更新之前的状态：")
-//        self.printAttributes(self.layoutInfoDic[itemIndexPath]!)
-//        print("最终状态：")
-//        self.printAttributes(attributes!)
-//        print("\n")
         print("fina:")
         print(attributes)
         return attributes
