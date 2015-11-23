@@ -162,8 +162,12 @@ class BGSelectImageLayout: UICollectionViewLayout {
         
     }
     
+  
+    
+    
     override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = super.initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath)
+        //此处需要用到copy，否则属性变量一次变化之后，会被保存，然后会出现移动那个动画
+        let attributes = super.initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath)?.copy() as? UICollectionViewLayoutAttributes
         switch self.animationType {
         case .Insert:
             if self.insertIndexPathArr.contains(itemIndexPath) {
@@ -182,22 +186,6 @@ class BGSelectImageLayout: UICollectionViewLayout {
                 //init是设置起点，而final设置终点，理论是不重合的
                 attributes?.transform3D = CATransform3DMakeRotation(-1*CGFloat(M_PI), 0, 0, -1)
             }
-            else {
-                var value = 0
-                if(self.beforeMoveIndexPath.row < self.afterMoveIndexPath.row) {
-                    /**
-                    *  之前的indexPath小于之后的indexPath，则是往右进行移动，而在它们之间的indexPath则是向左移动
-                    */
-                    value = -1
-                }
-                else if(self.beforeMoveIndexPath.row > self.afterMoveIndexPath.row) {
-                    /**
-                    *  移动之前的indexPath大于移动之后的indexPath，则是往左进行移动，而在它们之间的item则是向右移动
-                    */
-                    value = 1
-                }
-                attributes?.transform3D = CATransform3DMakeRotation(-1*CGFloat(M_PI), 0, 0, 1)
-            }
         case .Reload:
             attributes?.frame = self.lastFrameWithIndexPath(itemIndexPath)
             
@@ -210,17 +198,15 @@ class BGSelectImageLayout: UICollectionViewLayout {
     }
     
     override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = super.finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath)
+        let attributes = super.finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath)?.copy() as? UICollectionViewLayoutAttributes
         switch self.animationType {
         case .Insert:
             attributes?.frame = self.currentFrameWithIndexPath(NSIndexPath(forRow: itemIndexPath.row+1, inSection: itemIndexPath.section))
         case .Delete:
             if self.deleteIndexPathArr.contains(itemIndexPath) {
-//                self.printAttributes(attributes!)
                 //这里写成缩放成(0，0)直接就不见了
                 attributes?.transform = CGAffineTransformMakeScale(0.1, 0.1)
                 attributes?.alpha = 0.0
-//                self.printAttributes(attributes!)
             }
             else {
                 attributes?.frame = self.currentFrameWithIndexPath(NSIndexPath(forRow: itemIndexPath.row-1, inSection: itemIndexPath.section))
@@ -229,22 +215,6 @@ class BGSelectImageLayout: UICollectionViewLayout {
             if self.beforeMoveIndexPath == itemIndexPath {
                 //afterMoveIndexPath的消失动画和beforeMoveIndexPath的出现动画重合，设置他们旋转的角度一样，方向相反
                 attributes?.transform3D = CATransform3DMakeRotation(-1*CGFloat(M_PI), 0, 0, -1)
-            }
-            else {
-                var value = 0
-                if(self.beforeMoveIndexPath.row < self.afterMoveIndexPath.row) {
-                    /**
-                    *  之前的indexPath小于之后的indexPath，则是往右进行移动，而在它们之间的indexPath则是向左移动
-                    */
-                    value = -1
-                }
-                else if(self.beforeMoveIndexPath.row > self.afterMoveIndexPath.row) {
-                    /**
-                    *  移动之前的indexPath大于移动之后的indexPath，则是往左进行移动，而在它们之间的item则是向右移动
-                    */
-                    value = 1
-                }
-                attributes?.transform3D = CATransform3DMakeRotation(-1*CGFloat(M_PI), 0, 0, 1)
             }
         case .Reload:
             attributes?.alpha = 1.0
