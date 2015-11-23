@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BGSimpleImageSelectCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfj-Kh-New">
+                                <rect key="frame" x="20" y="496" width="173.5" height="84"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.33717621627606842" green="0.35628598457888555" blue="0.24086143390128487" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="0H0-ZN-Faz"/>
+                                    <constraint firstAttribute="width" constant="394" id="5Jf-4b-xlW"/>
+                                </constraints>
+                                <state key="normal" title="insert">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Jf-4b-xlW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="insertAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R51-j1-WDi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afN-me-IAn">
+                                <rect key="frame" x="406" y="496" width="173.5" height="84"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.33717621627606842" green="0.35628598457888555" blue="0.24086143390128487" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="Nqq-La-6to"/>
+                                    <constraint firstAttribute="width" constant="394" id="f2w-Wb-C1D"/>
+                                </constraints>
+                                <state key="normal" title="move">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="f2w-Wb-C1D"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="moveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AKd-Tf-BJp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0T-4u-nTx">
+                                <rect key="frame" x="214" y="496" width="173" height="84"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.33717621627606842" green="0.35628598457888555" blue="0.24086143390128487" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="394" id="1J2-F9-FOJ"/>
+                                    <constraint firstAttribute="height" constant="84" id="inj-JJ-KTX"/>
+                                </constraints>
+                                <state key="normal" title="delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1J2-F9-FOJ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P76-rZ-4Vb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="afN-me-IAn" secondAttribute="trailing" constant="20" id="3rP-BV-Bk6"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="height" secondItem="Xfj-Kh-New" secondAttribute="height" id="5ZY-zJ-p5K"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xfj-Kh-New" secondAttribute="bottom" constant="20" id="B3I-oE-VL9"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="leading" secondItem="s0T-4u-nTx" secondAttribute="trailing" constant="20" id="EYx-Qr-XtL"/>
+                            <constraint firstItem="s0T-4u-nTx" firstAttribute="bottom" secondItem="afN-me-IAn" secondAttribute="bottom" id="Ext-4d-gBq"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="bottom" secondItem="Xfj-Kh-New" secondAttribute="bottom" id="QcP-25-hz8"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="leading" secondItem="Xfj-Kh-New" secondAttribute="trailing" constant="20" id="UkA-q3-5V8"/>
+                            <constraint firstItem="Xfj-Kh-New" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="VYZ-va-4Bk"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="width" secondItem="Xfj-Kh-New" secondAttribute="width" id="n1m-yZ-Zsk"/>
+                            <constraint firstItem="s0T-4u-nTx" firstAttribute="leading" secondItem="Xfj-Kh-New" secondAttribute="trailing" constant="20" id="qzk-T5-67L"/>
+                            <constraint firstItem="s0T-4u-nTx" firstAttribute="width" secondItem="afN-me-IAn" secondAttribute="width" id="rAs-oz-HzC"/>
+                            <constraint firstItem="Xfj-Kh-New" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vM9-Ol-7Xj"/>
+                            <constraint firstItem="afN-me-IAn" firstAttribute="leading" secondItem="Xfj-Kh-New" secondAttribute="trailing" constant="20" id="vbO-0e-gri"/>
+                            <constraint firstItem="Xfj-Kh-New" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zNH-ar-aV4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vM9-Ol-7Xj"/>
+                                <exclude reference="zNH-ar-aV4"/>
+                                <exclude reference="UkA-q3-5V8"/>
+                                <exclude reference="vbO-0e-gri"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347" y="217"/>
+        </scene>
+    </scenes>
+</document>
